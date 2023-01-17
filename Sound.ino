@@ -1,3 +1,13 @@
+#include <SoftwareSerial.h>
+#define ARDUINO_RX 4//should connect to TX of the Serial MP3 Player module
+#define ARDUINO_TX 3//connect to RX of the module
+SoftwareSerial myMP3(ARDUINO_RX, ARDUINO_TX);
+
+byte sendBuffer[10]; //buffer that will be used to store commands before sending
+
+void setupSound() {
+    myMP3.begin(9600);
+}
 
 // Play a song from a folder
 void playFolderFile(byte folder, byte file) {
